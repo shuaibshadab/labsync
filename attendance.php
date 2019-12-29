@@ -16,21 +16,22 @@ if(empty($_SESSION['subject']) || empty($_SESSION['batch']) )
     header("Location: {$home_url}teacher.php?action=select_subject_batch");
 }
 
-if($_POST)
-{
-    
 
-}
- 
 // include page header HTML
 include_once 'layout_head.php';
 
 
 
-
-
- 
 echo "<div class='col-md-12'>";
+
+if($_POST)
+{
+    
+    echo "<div class='alert alert-info'>";
+    print_r ($_POST['status']);
+    echo "</div>";
+
+}
  
     // to prevent undefined index notice
     $action = isset($_GET['action']) ? $_GET['action'] : "";
@@ -106,11 +107,19 @@ echo "<div class='col-md-12'>";
                     ?>
                             <tr>
                             <td> <?php echo $i ?> </td>
-                            <td> <?php echo $value['roll']; ?></td>
-                            <td> <?php echo $value['fname']; ?></td>
-                            <td> <?php echo $value['lname']; ?></td>
-                            <td> <input type="radio" name="status[<?php echo $value['roll']; ?>]" value="present">P
-                                 <input type="radio" name="status[<?php echo $value['roll']; ?>]" value="absent">A
+                            <td > <?php echo $value['roll']; ?></td>
+                            <td > <?php echo $value['fname']; ?></td>
+                            <td > <?php echo $value['lname']; ?></td>
+
+                            <td> 
+                            <label class="customRadio">P
+                            <input type="radio"  name="status[<?php echo $value['roll']; ?>]" value="present" checked>
+                            <span class="checkmark"></span>
+                            </label>
+                            <label class="customRadio2">A
+                            <input type="radio" name="status[<?php echo $value['roll']; ?>]" value="Absent">
+                            <span class="checkmark"></span>
+                            </label>
                             </td>
                         </tr>
                        
