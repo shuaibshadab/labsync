@@ -10,10 +10,14 @@ $require_login=true;
 include_once "login_checker.php";
 
 if($_POST)
-    {
-        $_SESSION['subject'] = $_POST['subject'];
-        $_SESSION['batch'] = $_POST['batch'];
-        header("Location: {$home_url}attendance.php");
+    {   
+        if(isset($_POST['subject']) && isset ($_POST['batch']) )
+        {
+            $_SESSION['subject'] = $_POST['subject'];
+            $_SESSION['batch'] = $_POST['batch'];
+            header("Location: {$home_url}attendance.php");
+        }
+        
     
     }
  

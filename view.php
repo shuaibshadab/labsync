@@ -3,13 +3,13 @@
 include_once "config/core.php";
  
 // set page title
-$page_title="Attendance";
+$page_title="Update";
  
 // include login checker
 $require_login=true;
 include_once "login_checker.php";
 
-$currentDate= date("Y-m-d");
+$dt=$_GET['dt'];
 
 if(empty($_SESSION['subject']) || empty($_SESSION['batch']) )
 {
@@ -24,36 +24,9 @@ include_once 'layout_head.php';
 
 echo "<div class='col-md-12'>";
 
+
 if($_POST)
 {
-    // include classes
-    include_once "config/database.php";
-    include_once "objects/attendance.php";
-    
-    // get database connection
-    $database = new Database();
-    $db = $database->getConnection();
-    
-    // initialize objects
-    $attendance = new Attendance($db);
-    
-    // initialize object properties
-    $attendance->date=$currentDate;
-    $attendance->subject=$_SESSION['subject'];
-    $attendance->batch=$_SESSION['batch'];
-    
-    // insert attendance and pass the array
-    if(isset($_POST['status']))
-    {
-        $status = $_POST['status'];
-        $insertResult = $attendance->insertAttendance($status);
-        echo $insertResult;
-    }else{
-        echo "<div class='alert alert-danger'>";
-            echo "<strong>No students found!</strong>";
-        echo "</div>";
-    }
-    
 
 }
  
@@ -66,14 +39,7 @@ if($_POST)
             echo "<strong>Hi " . $_SESSION['username'] . ", welcome back!</strong>";
         echo "</div>";
     }
- 
-    // if user is already logged in, shown when user tries to access the login page
-    else if($action=='already_logged_in'){
-        echo "<div class='alert alert-info'>";
-            echo "<strong>You are already logged in.</strong>";
-        echo "</div>";
-    }
- 
+
     // content once logged in
     
     ?>
@@ -81,8 +47,7 @@ if($_POST)
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                <a class="btn btn-danger" href="teacher.php"> Back</a>
-                <a class="btn btn-info pull-right" href="dateview.php">View / Update</a>
+                <a class="btn btn-danger" href="dateview.php"> Back</a>
                 
             </div>
         <div class="panel-body">
@@ -91,7 +56,7 @@ if($_POST)
                 <strong>
                 <?php echo $_SESSION['subject']; ?>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
                 Batch:<?php echo $_SESSION['batch']; ?>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
-                 Date: <?php echo $currentDate; ?>
+                 Date: <?php echo $dt ?>
                 </strong> 
             </div>
             
@@ -122,7 +87,7 @@ if($_POST)
                     
                     
                     // check if email exists, also get user details using this emailExists() method
-                    $getstudent = $student->getStudents($_SESSION['subject']);
+                    $getstudent = $student->getAttendance($dt, $_SESSION['subject']);
                     
                     if($getstudent){
                         $i=0;
@@ -136,14 +101,7 @@ if($_POST)
                             <td > <?php echo $value['lname']; ?></td>
 
                             <td> 
-                            <label class="customRadio">P
-                            <input type="radio"  name="status[<?php echo $value['roll']; ?>]" value="present" checked>
-                            <span class="checkmark"></span>
-                            </label>
-                            <label class="customRadio2">A
-                            <input type="radio" name="status[<?php echo $value['roll']; ?>]" value="absent">
-                            <span class="checkmark"></span>
-                            </label>
+                            <?php echo $value['status']; ?>
                             </td>
                         </tr>
                        
@@ -154,8 +112,7 @@ if($_POST)
            
                 </table>
 
-                <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-
+               
             </form>
         </div>
         </div>

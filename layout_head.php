@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
     <!-- set the page title, for seo purposes too -->
-    <title><?php echo isset($page_title) ? strip_tags($page_title) : "Store Front"; ?></title>
+    <title><?php echo isset($page_title) ? strip_tags($page_title) : "LABSYNC"; ?></title>
  
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen" />

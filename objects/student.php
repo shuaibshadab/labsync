@@ -50,6 +50,36 @@ class Student{
         return false;
     }
 
+    function getAttendance($dt, $subject){
+
+        $query = "SELECT student.roll, student.fname, student.lname,attendance.status
+                  FROM student,attendance
+                  WHERE student.roll = attendance.roll
+                  AND attendance.date = '$dt'
+                  AND attendance.subject = '$subject'
+                  AND student.batch = '$this->batch' ";
+
+            // prepare the query
+        $stmt = $this->conn->prepare( $query );
+    
+    
+        // execute the query
+        $stmt->execute();
+    
+        // get number of rows
+        $num = $stmt->rowCount();
+    
+        // if email exists, assign values to object properties for easy access and use for php sessions
+        if($num>0){
+            
+            return $stmt;
+      
+        }
+    
+        // return false if user does not exist in the database
+        return false;
+    }
+
 
 
 }

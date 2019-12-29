@@ -33,6 +33,13 @@
                     <a href="<?php echo $home_url; ?>attendance.php">Attendance</a>
                 </li>
             </ul>
+
+            <ul class="nav navbar-nav">
+                <!-- link to the "Cart" page, highlight if current page is cart.php -->
+                <li <?php echo $page_title=="Update" ? "class='active'" : ""; ?>>
+                    <a href="<?php echo $home_url; ?>dateview.php">Update</a>
+                </li>
+            </ul>
             
  
             <?php
