@@ -1,5 +1,5 @@
 <!-- navbar -->
-<div class="navbar navbar-default navbar-static-top" role="navigation">
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
     <div class="container-fluid">
  
         <div class="navbar-header">
@@ -38,6 +38,13 @@
                 <!-- link to the "Cart" page, highlight if current page is cart.php -->
                 <li <?php echo $page_title=="Update" ? "class='active'" : ""; ?>>
                     <a href="<?php echo $home_url; ?>dateview.php">Update</a>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                <!-- link to the "Cart" page, highlight if current page is cart.php -->
+                <li <?php echo $page_title=="Report" ? "class='active'" : ""; ?>>
+                    <a href="<?php echo $home_url; ?>report.php">Report</a>
                 </li>
             </ul>
             

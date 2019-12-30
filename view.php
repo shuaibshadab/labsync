@@ -44,7 +44,7 @@ if($_POST)
     
     ?>
 
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
 
             <div class="panel-heading">
                 <a class="btn btn-danger" href="dateview.php"> Back</a>
@@ -63,7 +63,7 @@ if($_POST)
 
             <form action="" method="Post">
                 <table class="table table-striped table-hover table-responsive table-bordered">
-                    <tr>
+                    <tr class="info">
                         <th>Serial</th>
                         <th>Student Roll</th>
                         <th>First Name</th>
@@ -100,8 +100,10 @@ if($_POST)
                             <td > <?php echo $value['fname']; ?></td>
                             <td > <?php echo $value['lname']; ?></td>
 
-                            <td> 
+                            <td>
+                            <strong>
                             <?php echo $value['status']; ?>
+                            </strong>
                             </td>
                         </tr>
                        

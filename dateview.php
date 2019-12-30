@@ -33,7 +33,7 @@ if($_POST)
     
     ?>
 
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
 
             <div class="panel-heading">
                 <a class="btn btn-danger" href="attendance.php"> Back</a>   
@@ -50,7 +50,7 @@ if($_POST)
 
             <form action="" method="Post">
                 <table class="table table-striped table-hover table-responsive table-bordered">
-                    <tr>
+                    <tr class="info">
                         <th>Serial</th>
                         <th>Date</th>
                         <th class="text-center">Action</th>
@@ -85,7 +85,7 @@ if($_POST)
                             <td > <?php echo $value['date']; ?></td>
                             <td class="text-center">
                                 <a class="btn btn-primary" href="view.php?dt=<?php echo $value['date']; ?>">View</a>
-                                <a class="btn btn-success" href="update.php?dt=<?php echo $value['date']; ?>">Update</a>
+                                <a class="btn btn-danger" href="update.php?dt=<?php echo $value['date']; ?>">Update</a>
                             </td>
                             </tr>
                        

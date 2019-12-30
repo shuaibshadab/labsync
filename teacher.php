@@ -55,7 +55,11 @@ echo "<div class='col-md-12'>";
    
     ?>
 
+    <div class="panel panel-primary">
+      <div class="panel-heading">Select A subject</div>
+      <div class="panel-body">
 
+      
   <form action='' method='post' id='subject-form'>
             <div class="col-md-6">
                 <div class="form-group">
@@ -109,11 +113,12 @@ echo "<div class='col-md-12'>";
 
     <div class="col-md-12">
          <button type="submit"  class="btn btn-primary" href="attendance.php">
-                <span class="glyphicon glyphicon-plus"></span> Take Attendance
+                 Go
         </button>
     </div>
     </form>
-    
+    </div>
+    </div>
 
 
     <?php

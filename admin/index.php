@@ -6,7 +6,7 @@ include_once "../config/core.php";
 include_once "login_checker.php";
  
 // set page title
-$page_title="Admin Index";
+$page_title="Admin";
  
 // include page header HTML
 include 'layout_head.php';
@@ -29,9 +29,7 @@ include 'layout_head.php';
             echo "</div>";
         }
  
-        echo "<div class='alert alert-info'>";
-            echo "Contents of your admin section will be here.";
-        echo "</div>";
+       
  
     echo "</div>";
  

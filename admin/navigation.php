@@ -1,5 +1,5 @@
 <!-- navbar -->
-<div class="navbar navbar-default navbar-static-top" role="navigation">
+<div class="navbar navbar-inverse navbar-static-top" role="navigation">
     <div class="container-fluid">
  
         <div class="navbar-header">
@@ -20,7 +20,7 @@
  
  
                 <!-- highlight for order related pages -->
-                <li <?php echo $page_title=="Admin Index" ? "class='active'" : ""; ?>>
+                <li <?php echo $page_title=="Admin" ? "class='active'" : ""; ?>>
                     <a href="<?php echo $home_url; ?>admin/index.php">Home</a>
                 </li>
  

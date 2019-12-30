@@ -78,11 +78,11 @@ if($_POST)
     
     ?>
 
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
 
             <div class="panel-heading">
                 <a class="btn btn-danger" href="teacher.php"> Back</a>
-                <a class="btn btn-info pull-right" href="dateview.php">View / Update</a>
+                <a class="btn btn-danger pull-right" href="dateview.php">View / Update</a>
                 
             </div>
         <div class="panel-body">
@@ -98,7 +98,7 @@ if($_POST)
 
             <form action="" method="Post">
                 <table class="table table-striped table-hover table-responsive table-bordered">
-                    <tr>
+                    <tr class="info">
                         <th>Serial</th>
                         <th>Student Roll</th>
                         <th>First Name</th>
@@ -154,8 +154,9 @@ if($_POST)
            
                 </table>
 
-                <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-
+                <button type="submit"  class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span> Take Attendance
+                </button>
             </form>
         </div>
         </div>
